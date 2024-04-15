@@ -2,7 +2,7 @@ import yfinance as yf
 import pytz
 
 def get_data(ticker):
-    df = yf.Ticker(ticker).history(period="1y", auto_adjust=True).reset_index()
+    df = yf.Ticker(ticker).history(period="5y", auto_adjust=True).reset_index()
     df = df.rename(columns = {
         "Date": "datetime",
         "Open": "open",
