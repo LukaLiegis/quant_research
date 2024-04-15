@@ -1,6 +1,8 @@
 import yfinance as yf
+from numba import jit
 import pytz
 
+@jit(nopython=True)
 def get_data(ticker):
     df = yf.Ticker(ticker).history(period="5y", auto_adjust=True).reset_index()
     df = df.rename(columns = {
